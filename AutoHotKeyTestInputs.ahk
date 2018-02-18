@@ -19,3 +19,8 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 	Send, 10
 	Send, {Tab}
 	Send, 70
+	Send, {Tab}
+	Send, 30000
+	Send, {Tab}
+	Send, 5
+	

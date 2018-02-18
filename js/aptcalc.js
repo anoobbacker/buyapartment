@@ -2,6 +2,40 @@ $.fn.exists = function () {
     return this.length !== 0;
   }
   
+  function filldefaults()
+  {
+    var aptSftArea = $("input[id^='aptsftarea']" ).val();
+    var aptSftRateBase = $("input[id^='aptsftratebase']" ).val();
+    var floorRaiseAmt = $("input[id^='floorraiseamt']" ).val();
+    var aptFloor = $("input[id^='aptfloor']" ).val();
+    var carParkingRate = $("input[id^='carparking']" ).val();
+
+    var loanAmtElement = $("input[id^='loanamt']" );
+    var loanAmtVal = $("input[id^='loanamt']" ).val();
+
+    var oneLakh=100000;
+    if ( !aptSftRateBase || !floorRaiseAmt || !aptFloor || !aptSftArea || !carParkingRate) 
+    {
+      console.log('Some of the inputs are not set, hence returning');
+      return;
+    }
+    
+    var saleValue = (+aptSftRateBase + (+floorRaiseAmt * aptFloor)) * + aptSftArea;
+
+    var loanPercent = 80; 
+    if ( parseInt(saleValue,10) > parseInt(+75*oneLakh,10)) {
+        loanPercent = 75;
+    }
+    
+    var loanAmt = +loanPercent * saleValue / 100
+    loanAmt = Math.round(loanAmt/oneLakh);
+
+    if ( !loanAmtVal ) {
+      console.log('Setting the default loan amount to ' + loanAmt + ' which is ' + loanPercent + '% of sale value');
+      loanAmtElement.val(loanAmt);
+    }
+  }
+  
   function aptinputs() {
     validation.validate();
     if ( !validation.isValid() ) return false;
@@ -15,6 +49,9 @@ $.fn.exists = function () {
       var interestRate = $("input[id^='interestrate']" ).val();
       var interestDuration = $("input[id^='interestduration']" ).val();
       var loanAmt = $("input[id^='loanamt']" ).val();
+
+      var avgRental = $("input[id^='avgmonthlyrent']" ).val();
+      var avgSaleAppreciation = $("input[id^='avgappreciateratio']" ).val();
 
       var oneLakh=100000;
 
@@ -194,8 +231,21 @@ $.fn.exists = function () {
       //Total payable with interest for a sft
       var totalPayablePerSftWithLoan = +totalPayableWithLoan / aptSftArea;
       totalPayablePerSftWithLoan = Math.round(totalPayablePerSftWithLoan/100)*100;
-      elem3.appendChild(createFeatureItem('icon-grid', totalPayablePerSftWithLoan, 'Per sft rate that you will pay with bank loan.'));
+      elem3.appendChild(createFeatureItem('icon-arrow-up', inWords(totalPayablePerSftWithLoan), 'Per sft rate that you will pay with bank loan. The builder sale rate was ' + (+aptSftRateBase + (+floorRaiseAmt * aptFloor))));
       console.log('Per sft rate with loan: ' + totalPayablePerSftWithLoan);
+
+      //If rented, total rent paid for loan tenure
+      var totalRental = +tenureInMonths * avgRental;
+      totalRental = Math.round(totalRental/1000)*1000;
+      elem3.appendChild(createFeatureItem('icon-briefcase', inWords(totalRental), 'If you had opted to rent, the total rent paid for ' + interestDuration + ' years.'));
+      console.log('Total rental: ' + totalRental);
+
+      //If planning to sell after taking bank loan, how much will you gain after sale
+      var totalAppreciatedRate = +totalCostOfOwnership * Math.pow((1 + avgSaleAppreciation/100),interestDuration);
+      totalAppreciatedRate = Math.round(totalAppreciatedRate/1000)*1000;
+      var totalAppreciatedRateGain = +totalAppreciatedRate - totalCostOfOwnership - (maintain1YearIGST * interestDuration) - totalInterestPayable;
+      elem3.appendChild(createFeatureItem('icon-clock', inWords(totalAppreciatedRateGain), 'If you had opted to sell after ' + interestDuration +' years, above is what you would have benefited at an annual appreciation of ' + avgSaleAppreciation + ' %. The final sale rate would be '+ inWords(totalAppreciatedRate)));
+      console.log('Sale rate: ' + totalAppreciatedRate);
 
       elem2.appendChild(elem3);
       elem1.appendChild(elem2);

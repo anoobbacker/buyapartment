@@ -68,35 +68,46 @@
           <div class="col-md-8 mx-auto">            
             <div id="aptdetailsinputform">
               <fieldset>
-                <legend>Enter the details provided by the builder below!</legend>
+                <legend>Enter the apartment details by the builder.</legend>
                 <div class="form-group">
                   <label for="aptsftarea">Total area (in sft):<sup>*</sup></label>
-                  <input type="text" id="aptsftarea" type="number" class="validate form-control" data-validate="required" autofocus placeholder="Input the area. Eg: 1,215" tabindex="1">
+                  <input id="aptsftarea" type="number" class="validate form-control" data-validate="required" autofocus placeholder="Input the area. Eg: 1,215" tabindex="1" onchange="filldefaults()">
 
                   <label for="aptsftratebase">Rate per sft for base floor (in INR):<sup>*</sup></label>
-                  <input type="text" id="aptsftratebase" type="number" class="validate form-control" data-validate="required" placeholder="Input the amount per sft. Eg: 5,500" tabindex="2">
+                  <input id="aptsftratebase" type="number" class="validate form-control" data-validate="required" placeholder="Input the amount per sft. Eg: 5,500" tabindex="2" onchange="filldefaults()">
 
                   <label for="floorraiseamt">Per floor raise charge (in INR):<sup>*</sup></label>
-                  <input type="text" id="floorraiseamt" type="number" class="validate form-control" data-validate="required" placeholder="Input the per floor raise charge in INR. Eg: 20"  tabindex="3">
+                  <input id="floorraiseamt" type="number" class="validate form-control" data-validate="required" placeholder="Input the per floor raise charge in INR. Eg: 20"  tabindex="3" onchange="filldefaults()">
 
                   <label for="aptfloor">Which floor are you choosing?<sup>*</sup></label>
-                  <input type="text" id="aptfloor" type="number" class="validate form-control" data-validate="required"  placeholder="Input the floor of your choice. Eg: 25" tabindex="4">
+                  <input id="aptfloor" type="number" class="validate form-control" data-validate="required"  placeholder="Input the floor of your choice. Eg: 25" tabindex="4" onchange="filldefaults()">
 
                   <label for="carparking">What is the car parking slot rate (in lakhs INR) ?<sup>*</sup></label>
-                  <input type="text" id="carparking" type="number" class="validate form-control" data-validate="required"  placeholder="Input the parking slot charges in lakhs. Eg: 4" tabindex="5">
+                  <input id="carparking" type="number" class="validate form-control" data-validate="required"  placeholder="Input the parking slot charges in lakhs. Eg: 4" tabindex="5" onchange="filldefaults()">
                 </div>
               </fieldset>
               <fieldset>
-                <legend>Enter the bank loan details below!</legend>
+                <legend>Enter the bank loan plans.</legend>
                 <div class="form-group">
                   <label for="interestrate">What is the bank interest rate (in percentage)?<sup>*</sup></label>
-                  <input type="text" id="interestrate" type="number" class="validate form-control" data-validate="required"  placeholder="Input the interest rate. Eg: 8.35" tabindex="6">
+                  <input id="interestrate" type="number" class="validate form-control" data-validate="required"  placeholder="Input the interest rate. Eg: 8.35" tabindex="6">
 
                   <label for="interestduration">What is the bank interest tenure or duration (in years)?<sup>*</sup></label>
-                  <input type="text" id="interestduration" type="number" class="validate form-control" data-validate="required"  placeholder="Input the interest tenure. Eg: 10" tabindex="7">
+                  <input id="interestduration" type="number" class="validate form-control" data-validate="required"  placeholder="Input the interest tenure. Eg: 10" tabindex="7">
 
                   <label for="loanamt">What is the loan amount needed (in lakhs INR)?<sup>*</sup></label>
-                  <input type="text" id="loanamt" type="number" class="validate form-control" data-validate="required"  placeholder="Input the loan amount in lakhs. Eg: 20" tabindex="8">
+                  <input id="loanamt" type="number" class="validate form-control" data-validate="required"  placeholder="Input the loan amount in lakhs. Eg: 20" tabindex="8">
+                </div>
+              </fieldset>
+              <fieldset>
+                  <legend>To compare whether rental is benefital vs buying.</legend>
+                  <p class="text-muted">Enter below details considering an average for the loan tenure!</p>
+                  <div class="form-group">
+                    <label for="avgmonthlyrent">What will be the average monthly rental? (in INR)?<sup>*</sup></label>
+                    <input id="avgmonthlyrent" type="number" class="validate form-control" data-validate="required"  placeholder="Input the average monthly rental. Eg: 30,000" tabindex="9">
+  
+                    <label for="avgappreciateratio">What will be the average apartment sale appreciation ratio per year? (in percentage)?<sup>*</sup></label>
+                    <input id="avgappreciateratio" type="number" class="validate form-control" data-validate="required"  placeholder="Input the average apartment sale appreciation per year. Eg: 5" tabindex="10">
                 </div>
               </fieldset>
               <hr />
@@ -104,7 +115,7 @@
               <p class="text-muted"><sup>*</sup> All inputs are mandatory.</p>
               <hr />
               <br />
-              <button class="btn btn-primary" onclick="return aptinputs()" tabindex="9" id="submitbutton" >Submit</button>
+              <button class="btn btn-primary" onclick="return aptinputs()" tabindex="11" id="submitbutton" >Analyze</button>
             </div>
           </div>
         </div>
@@ -115,10 +126,10 @@
       <div class="container"  id="featuredetails">
         <div class="section-heading text-center">
           <h2>Analysis Report</h2>
-          <p class="text-muted">Below is an estimated analysis based on your inputs!</p>
+          <p class="text-muted">An estimated analysis with amount rounded off is shown below. This is based on your inputs provided above!</p>
           <hr>
-          <p id="breakupdetails">You haven't submited any inputs. Go to the submit section and input the details.</p>
-          <a class="btn btn-primary text-center js-scroll-trigger" href="#startnow" tabindex="14" id="viewsubmit2">Click here to modify inputs?</a>
+          <p id="breakupdetails">You haven't submited any inputs. Go to the above section and provide the details.</p>
+          <a class="btn btn-primary text-center js-scroll-trigger" href="#startnow" tabindex="20" id="viewsubmit2">Click here to modify details</a>
         </div> 
       </div>  
     </section>
