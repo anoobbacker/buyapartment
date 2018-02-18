@@ -13,3 +13,5 @@ After downloading, simply edit the HTML and CSS files included with the template
 1. Add guidance to buy or rent.
 2. Improve the analysis report.
 
+# Copyright and License
+Copyright 2018 Anoob Backer. Code released under the [MIT](https://github.com/anoobbacker/buyapartment/blob/master/LICENSE) license.
