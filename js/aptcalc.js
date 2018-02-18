@@ -193,7 +193,7 @@ $.fn.exists = function () {
       elem3.setAttribute('class', 'row');
 
       //add TCO
-      elem3.appendChild(createFeatureItem('icon-loop', inWords(totalCostOfOwnership), 'Total Cost of Ownership for the apartment is ' + totalCostOfOwnership));
+      elem3.appendChild(createFeatureItem('icon-loop', inWords(totalCostOfOwnership), 'Total Cost of Ownership for the apartment is ' + totalCostOfOwnership + '. This is excluding bank loan interst.'));
       console.log('Total cost of ownership: ' + totalCostOfOwnership);
 
       var downPaymentPercent = 20; 
@@ -255,7 +255,7 @@ $.fn.exists = function () {
 
       var viewAnalysisButton = document.createElement('button');
       viewAnalysisButton.setAttribute('class','btn btn-primary');
-      viewAnalysisButton.setAttribute('tabindex','10');
+      viewAnalysisButton.setAttribute('tabindex','12');
       viewAnalysisButton.setAttribute('id','viewanalysisbutton');
       viewAnalysisButton.setAttribute('href','#features');
       viewAnalysisButton.textContent = 'View Analysis';

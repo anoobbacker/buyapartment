@@ -4,8 +4,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Know whether Buying or Renting the Property is profitable? Buy Vs Rent Calculator to make informed property decision.">
+    <meta name="author" content="Anoob Backer">
+    <meta name="keywords" content="Property to Buy or Rent, Buy Vs Rent Caculator "/>
 
     <title>Apartment purchase or buying guidance</title>
 
@@ -68,7 +69,7 @@
           <div class="col-md-8 mx-auto">            
             <div id="aptdetailsinputform">
               <fieldset>
-                <legend>Enter the apartment details by the builder.</legend>
+                <legend>Enter the apartment details.</legend>
                 <div class="form-group">
                   <label for="aptsftarea">Total area (in sft):<sup>*</sup></label>
                   <input id="aptsftarea" type="number" class="validate form-control" data-validate="required" autofocus placeholder="Input the area. Eg: 1,215" tabindex="1" onchange="filldefaults()">
@@ -83,9 +84,10 @@
                   <input id="aptfloor" type="number" class="validate form-control" data-validate="required"  placeholder="Input the floor of your choice. Eg: 25" tabindex="4" onchange="filldefaults()">
 
                   <label for="carparking">What is the car parking slot rate (in lakhs INR) ?<sup>*</sup></label>
-                  <input id="carparking" type="number" class="validate form-control" data-validate="required"  placeholder="Input the parking slot charges in lakhs. Eg: 4" tabindex="5" onchange="filldefaults()">
+                  <input id="carparking" type="number" class="validate form-control" data-validate="required"  placeholder="Input the amount in lakhs INR. Eg: 4" tabindex="5" onchange="filldefaults()">
                 </div>
               </fieldset>
+              <hr/>
               <fieldset>
                 <legend>Enter the bank loan plans.</legend>
                 <div class="form-group">
@@ -93,12 +95,13 @@
                   <input id="interestrate" type="number" class="validate form-control" data-validate="required"  placeholder="Input the interest rate. Eg: 8.35" tabindex="6">
 
                   <label for="interestduration">What is the bank interest tenure or duration (in years)?<sup>*</sup></label>
-                  <input id="interestduration" type="number" class="validate form-control" data-validate="required"  placeholder="Input the interest tenure. Eg: 10" tabindex="7">
+                  <input id="interestduration" type="number" class="validate form-control" data-validate="required"  placeholder="Input the interest duration in years. Eg: 10" tabindex="7">
 
                   <label for="loanamt">What is the loan amount needed (in lakhs INR)?<sup>*</sup></label>
-                  <input id="loanamt" type="number" class="validate form-control" data-validate="required"  placeholder="Input the loan amount in lakhs. Eg: 20" tabindex="8">
+                  <input id="loanamt" type="number" class="validate form-control" data-validate="required"  placeholder="Input the amount in lakhs INR. Eg: 20" tabindex="8">
                 </div>
               </fieldset>
+              <hr/>
               <fieldset>
                   <legend>To compare whether rental is benefital vs buying.</legend>
                   <p class="text-muted">Enter below details considering an average for the loan tenure!</p>
@@ -106,12 +109,12 @@
                     <label for="avgmonthlyrent">What will be the average monthly rental? (in INR)?<sup>*</sup></label>
                     <input id="avgmonthlyrent" type="number" class="validate form-control" data-validate="required"  placeholder="Input the average monthly rental. Eg: 30,000" tabindex="9">
   
-                    <label for="avgappreciateratio">What will be the average apartment sale appreciation ratio per year? (in percentage)?<sup>*</sup></label>
+                    <label for="avgappreciateratio">What will be the average apartment sale appreciation ratio per year (in percent)?<sup>*</sup></label>
                     <input id="avgappreciateratio" type="number" class="validate form-control" data-validate="required"  placeholder="Input the average apartment sale appreciation per year. Eg: 5" tabindex="10">
                 </div>
               </fieldset>
               <hr />
-              <p class="text-muted">Click the submit button once you've completed the inputs.</p>
+              <p class="text-muted">Click the ANALYZE button once you've completed the inputs.</p>
               <p class="text-muted"><sup>*</sup> All inputs are mandatory.</p>
               <hr />
               <br />
@@ -126,7 +129,7 @@
       <div class="container"  id="featuredetails">
         <div class="section-heading text-center">
           <h2>Analysis Report</h2>
-          <p class="text-muted">An estimated analysis with amount rounded off is shown below. This is based on your inputs provided above!</p>
+          <p class="text-muted">An estimated analysis (rounded figures) is shown below. This is based on your inputs provided above!</p>
           <hr>
           <p id="breakupdetails">You haven't submited any inputs. Go to the above section and provide the details.</p>
           <a class="btn btn-primary text-center js-scroll-trigger" href="#startnow" tabindex="20" id="viewsubmit2">Click here to modify details</a>
